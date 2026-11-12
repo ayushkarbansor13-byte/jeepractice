@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#123b70">
+<title>JEE Question Lab | Practice with Purpose</title>
+<style>
+:root{--navy:#123b70;--blue:#2166c2;--sky:#eaf3ff;--ink:#17243a;--muted:#64748b;--line:#e4eaf2;--bg:#f7f9fc;--white:#fff;--green:#16865b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.5}
+a{color:inherit;text-decoration:none}.wrap{width:min(1120px,92%);margin:auto}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.4px;color:var(--navy)}
+.logo{width:39px;height:39px;border-radius:12px;background:linear-gradient(145deg,#2878d5,#123b70);display:grid;place-items:center;color:#fff;font-weight:900;font-size:17px;box-shadow:0 5px 14px #2166c233}
+.links{display:flex;gap:25px;color:#526176;font-size:14px;font-weight:600}.links a:hover{color:var(--blue)}
+.nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:10px;padding:11px 17px;font-weight:700;font-size:14px;cursor:pointer}
+.nav-cta,.primary{background:var(--blue);color:#fff}.secondary{background:#fff;color:var(--navy);border:1px solid #d5e2f2}
+.hero{padding:76px 0 62px;background:radial-gradient(circle at 85% 15%,#dbeaff 0,transparent 32%),linear-gradient(180deg,#fff 0%,#f7faff 100%)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:#eaf3ff;color:#1b5cab;border:1px solid #d5e7ff;padding:6px 11px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.5px;text-transform:uppercase}
+h1{font-size:clamp(38px,5.2vw,60px);line-height:1.08;letter-spacing:-2.3px;margin:19px 0 17px;color:#122d50}
+h1 span{color:var(--blue)}.lead{font-size:17px;color:#5c6b80;max-width:590px;margin:0 0 26px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}.btn{padding:13px 19px}.primary:hover,.nav-cta:hover{background:#174f9b}.secondary:hover{background:#f3f7fd}
+.trust{display:flex;gap:20px;flex-wrap:wrap;margin-top:27px;color:#64748b;font-size:12px;font-weight:600}.trust span:before{content:"✓";color:var(--green);font-weight:900;margin-right:7px}
+.preview{background:#fff;border:1px solid #e0e8f3;border-radius:20px;padding:23px;box-shadow:0 20px 55px #173e6c16;transform:rotate(1deg)}
+.preview-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.preview-title{font-weight:800;color:#1a3559}.live{font-size:11px;background:#e9f8f0;color:#16865b;padding:5px 9px;border-radius:20px;font-weight:800}
+.stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:11px}.stat{background:#f6f9fd;border:1px solid #edf1f6;border-radius:12px;padding:14px}.stat small{display:block;color:#738197;font-size:11px;font-weight:600}.stat strong{display:block;font-size:22px;color:#173e70;margin-top:4px}
+.mini-label{font-size:12px;color:#65758b;font-weight:700;margin:18px 0 9px}.bar{height:8px;background:#e8eef6;border-radius:20px;overflow:hidden}.bar i{display:block;height:100%;width:72%;background:linear-gradient(90deg,#2b7bd8,#64a8ef);border-radius:20px}
+.section{padding:62px 0}.section-head{text-align:center;max-width:650px;margin:0 auto 30px}.section-head h2{font-size:30px;letter-spacing:-.8px;margin:0 0 8px;color:#173456}.section-head p{color:var(--muted);margin:0}
+.subjects{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.subject{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;transition:.2s}.subject:hover{transform:translateY(-3px);box-shadow:0 12px 28px #183e6b10}
+.subject-icon{width:43px;height:43px;border-radius:12px;background:var(--sky);display:grid;place-items:center;color:var(--blue);font-size:21px;font-weight:800}
+.subject h3{margin:15px 0 5px;font-size:18px}.subject p{margin:0;color:var(--muted);font-size:13px}.subject a{display:inline-block;margin-top:16px;color:var(--blue);font-weight:800;font-size:13px}
+.features{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.feature{padding:22px;border:1px solid var(--line);border-radius:15px;background:#fff}.feature b{display:block;margin:9px 0 5px}.feature p{font-size:13px;color:var(--muted);margin:0}.feature .symbol{font-size:22px;color:var(--blue)}
+.exam-panel{background:#123b70;color:#fff;border-radius:20px;padding:30px;display:flex;justify-content:space-between;align-items:center;gap:25px}.exam-panel h2{margin:0 0 6px;font-size:25px}.exam-panel p{margin:0;color:#d0def0;font-size:14px}.exam-pills{display:flex;gap:10px;flex-wrap:wrap}.exam-pills span{border:1px solid #ffffff55;border-radius:9px;padding:10px 14px;font-weight:700;font-size:13px}
+footer{padding:28px 0;background:#fff;border-top:1px solid var(--line);color:#728096;font-size:12px}.foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.notice{font-size:11px;color:#8a96a8;margin-top:12px}
+@media(max-width:780px){.links{display:none}.hero{padding:52px 0}.hero-grid{grid-template-columns:1fr;gap:32px}.preview{transform:none}.subjects,.feature-grid{grid-template-columns:1fr}.exam-panel{align-items:flex-start;flex-direction:column}.section{padding:48px 0}h1{letter-spacing:-1.5px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#"><span class="logo">JL</span><span>JEE QUESTION LAB</span></a>
+    <nav class="links" aria-label="Main navigation">
+      <a href="#subjects">Subjects</a><a href="#features">Features</a><a href="#exams">Examinations</a>
+    </nav>
+    <a class="nav-cta" href="#subjects">Explore practice</a>
+  </div>
+</header>
+<main>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">● Your focused JEE practice space</div>
+      <h1>Prepare smarter.<br><span>Practice stronger.</span></h1>
+      <p class="lead">A structured practice platform for JEE Main and JEE Advanced. Explore Physics, Chemistry and Mathematics through chapter-wise learning and carefully reviewed questions.</p>
+      <div class="actions"><a class="btn primary" href="#subjects">Explore subjects&nbsp; →</a><a class="btn secondary" href="#features">Discover the platform</a></div>
+      <div class="trust"><span>Chapter-wise practice</span><span>Concept-focused learning</span><span>Progress tracking planned</span></div>
+    </div>
+    <aside class="preview" aria-label="Illustrative dashboard preview">
+      <div class="preview-top"><div class="preview-title">Your practice dashboard</div><span class="live">PREVIEW</span></div>
+      <div class="stat-grid">
+        <div class="stat"><small>Subjects</small><strong>03</strong></div>
+        <div class="stat"><small>Exam tracks</small><strong>02</strong></div>
+        <div class="stat"><small>Practice mode</small><strong>Topic</strong></div>
+        <div class="stat"><small>Learning goal</small><strong>Daily</strong></div>
+      </div>
+      <div class="mini-label">A structured preparation journey</div><div class="bar"><i></i></div>
+      <p class="notice">Illustrative preview only. Personal scores and progress will appear after practice features are connected.</p>
+    </aside>
+  </div>
+</section>
+<section class="section" id="subjects">
+  <div class="wrap">
+    <div class="section-head"><h2>Choose your subject</h2><p>Build strong fundamentals, then move towards multi-concept JEE problems.</p></div>
+    <div class="subjects">
+      <article class="subject"><div class="subject-icon">∑</div><h3>Physics</h3><p>Mechanics, electricity, magnetism, optics, modern physics and more.</p><a href="#features">Explore Physics →</a></article>
+      <article class="subject"><div class="subject-icon">⚗</div><h3>Chemistry</h3><p>Physical, Organic and Inorganic Chemistry with concept-wise practice.</p><a href="#features">Explore Chemistry →</a></article>
+      <article class="subject"><div class="subject-icon">π</div><h3>Mathematics</h3><p>Algebra, calculus, coordinate geometry, vectors and more.</p><a href="#features">Explore Mathematics →</a></article>
+    </div>
+  </div>
+</section>
+<section class="section features" id="features">
+  <div class="wrap">
+    <div class="section-head"><h2>Everything organised for focused practice</h2><p>The platform will grow feature by feature, with question quality at its centre.</p></div>
+    <div class="feature-grid">
+      <article class="feature"><div class="symbol">▤</div><b>Chapter & topic practice</b><p>Choose a chapter, narrow it to a topic and practise at your current level.</p></article>
+      <article class="feature"><div class="symbol">✦</div><b>AI-assisted question sets</b><p>New question drafts with concept tags and a separate academic review process.</p></article>
+      <article class="feature"><div class="symbol">✓</div><b>Reviewed solutions</b><p>Answer keys and worked solutions checked before questions are approved.</p></article>
+      <article class="feature"><div class="symbol">◷</div><b>Timed practice</b><p>Practise under time limits and build exam discipline.</p></article>
+      <article class="feature"><div class="symbol">▥</div><b>Mock test centre</b><p>Work towards chapter tests, mixed tests and full-length practice papers.</p></article>
+      <article class="feature"><div class="symbol">↗</div><b>Learning analytics</b><p>Review accuracy, time spent and concepts that need more attention.</p></article>
+    </div>
+  </div>
+</section>
+<section class="section" id="exams">
+  <div class="wrap"><div class="exam-panel"><div><h2>One preparation space. Two exam pathways.</h2><p>Practise according to the selected examination and its applicable syllabus.</p></div><div class="exam-pills"><span>JEE Main</span><span>JEE Advanced</span></div></div></div>
+</section>
+</main>
+<footer><div class="wrap foot"><span><strong>JEE QUESTION LAB</strong> · Independent practice project</span><span>Built for learning. Verify official exam information from NTA and JEE Advanced.</span></div></footer>
+</body>
+</html>
